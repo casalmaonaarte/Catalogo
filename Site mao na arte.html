@@ -1,0 +1,2343 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Casal Mão na Arte - Catálogo Premium</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        
+        :root {
+            --primary: #0075A2;
+            --primary-dark: #005a7a;
+            --secondary: #ADF5FF;
+            --accent: #0075A2;
+            --accent-light: #ADF5FF;
+            --dark: #2c3e50;
+            --light: #ecf0f1;
+            --white: #ffffff;
+            --gray: #6b7280;
+            --dark-gray: #374151;
+            --text: #2c3e50;
+            --text-light: #7f8c8d;
+            --gradient: linear-gradient(135deg, var(--primary), var(--secondary));
+            --shadow: 0 10px 30px rgba(0,0,0,0.1);
+            --shadow-lg: 0 20px 60px rgba(0,0,0,0.15);
+            --border-radius: 12px;
+            
+            /* Light theme */
+            --bg-primary: #f8f8f8;
+            --bg-secondary: #ffffff;
+            --bg-card: #ffffff;
+            --text-primary: #2c3e50;
+            --text-secondary: #7f8c8d;
+            --border-color: #e1e8ed;
+        }
+        
+        [data-theme="dark"] {
+            --bg-primary: #040303;
+            --bg-secondary: #1a1a1a;
+            --bg-card: #2a2a2a;
+            --text-primary: #ffffff;
+            --text-secondary: #b0b0b0;
+            --border-color: #404040;
+            --white: #2a2a2a;
+            --light: #404040;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        /* Header */
+        .header {
+            background: #0075a2 !important;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+        
+        .header-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 2rem;
+        }
+        
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .logo {
+            height: 60px;
+            width: auto;
+            transition: transform 0.3s ease;
+        }
+        
+        .logo:hover {
+            transform: scale(1.05);
+        }
+        
+        .brand-text {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white !important;
+            text-decoration: none;
+        }
+        
+        .search-container {
+            flex: 1;
+            max-width: 500px;
+            position: relative;
+        }
+        
+        .search-input {
+            width: 100%;
+            padding: 0.75rem 1rem 0.75rem 3rem;
+            border: 2px solid var(--border-color);
+            border-radius: 25px;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            outline: none;
+        }
+        
+        .search-input:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(0, 117, 162, 0.1);
+        }
+        
+        .search-icon {
+            position: absolute;
+            left: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: rgba(255,255,255,0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .search-icon svg {
+            width: 20px;
+            height: 20px;
+            stroke: currentColor;
+        }
+        
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .nav-btn {
+            padding: 0.75rem 1.5rem;
+            background: transparent;
+            color: white;
+            text-decoration: none;
+            border: 2px solid transparent;
+            border-radius: 25px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-btn svg {
+            width: 18px;
+            height: 18px;
+            stroke: currentColor;
+        }
+        
+        .nav-btn:hover {
+            background: rgba(255,255,255,0.1);
+            color: white;
+            transform: translateY(-2px);
+        }
+        
+
+
+        /* Navigation Bar (Legacy) */
+        .navbar {
+            position: sticky;
+            top: 0;
+            background: #191919; /* Alteração 2: Cor do cabeçalho */
+            backdrop-filter: blur(20px);
+            padding: 1rem 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .search-box {
+            width: 100%;
+            padding: 0.8rem 1rem 0.8rem 3rem;
+            border: 2px solid transparent;
+            border-radius: 50px;
+            background: var(--light);
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            outline: none;
+        }
+
+        .search-box:focus {
+            border-color: var(--secondary);
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.2);
+        }
+
+        /* Filter Section */
+        .filter-section {
+            background: var(--bg-secondary);
+            padding: 2rem 0;
+            border-bottom: 1px solid var(--border-color);
+            backdrop-filter: blur(10px);
+            max-width: 1400px;
+            margin: 3rem auto;
+            padding: 0 2rem;
+        }
+
+        .filter-tabs {
+            display: flex;
+            gap: 1.5rem;
+            overflow-x: auto;
+            padding: 1rem 0;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .filter-tabs::-webkit-scrollbar {
+            display: none;
+        }
+
+        .filter-tab {
+            padding: 1rem 2rem;
+            background: var(--bg-primary);
+            border: 2px solid var(--border-color);
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            font-weight: 600;
+            white-space: nowrap;
+            position: relative;
+            overflow: hidden;
+            color: var(--text-primary);
+            font-size: 0.95rem;
+            min-width: 120px;
+            text-align: center;
+        }
+
+        .filter-tab::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--gradient);
+            z-index: -1;
+        }
+
+        .filter-tab::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: all 0.3s ease;
+            z-index: 1;
+        }
+
+        .filter-tab:hover::before,
+        .filter-tab.active::before {
+            left: 0;
+        }
+
+        .filter-tab:hover::after {
+            width: 100px;
+            height: 100px;
+        }
+
+        .filter-tab:hover,
+        .filter-tab.active {
+            color: white;
+            border-color: var(--primary);
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 15px 35px rgba(0, 117, 162, 0.3);
+        }
+
+        .filter-tab:active {
+            transform: translateY(-3px) scale(1.02);
+        }
+
+        /* Products Grid */
+        .products-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .product-card {
+            background: var(--bg-card);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 1px solid var(--border-color);
+            position: relative;
+            cursor: pointer;
+        }
+
+        .product-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--gradient);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 1;
+            border-radius: 20px;
+        }
+
+        .product-card:hover {
+            transform: translateY(-15px) scale(1.03);
+            box-shadow: 0 25px 50px rgba(0, 117, 162, 0.15);
+            border-color: var(--primary);
+        }
+
+        .product-card:hover::before {
+            opacity: 0.03;
+        }
+
+        .product-image {
+            width: 100%;
+            height: 220px;
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+        
+        .product-image img:hover {
+            transform: scale(1.05);
+        }
+
+        .product-card:hover .product-image img {
+            transform: scale(1.1);
+        }
+
+        .product-badge {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: var(--primary);
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            z-index: 2;
+        }
+
+        .product-info {
+            padding: 1.5rem;
+            position: relative;
+            z-index: 2;
+            text-align: center;
+        }
+
+        .product-category {
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            margin-bottom: 0.5rem;
+            background: var(--secondary);
+            color: var(--primary);
+            padding: 0.25rem 0.75rem;
+            border-radius: 15px;
+            display: inline-block;
+            font-size: 0.75rem;
+        }
+
+        .product-name {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin: 0.75rem 0 0.5rem 0;
+            line-height: 1.3;
+        }
+
+        .product-size {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+
+        .product-price {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+
+
+        .product-actions {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .btn {
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        .btn-primary {
+            background: var(--gradient);
+            color: white;
+            flex: 1;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(44, 24, 16, 0.3);
+        }
+
+        .btn-outline {
+            background: var(--primary);
+            color: var(--light); /* Alteração 2: Cor do texto do botão */
+            border: 2px solid var(--light); /* Alteração 2: Cor da borda do botão */
+            padding: 0.6rem 1rem;
+        }
+
+        .btn-outline:hover {
+            background: var(--secondary); /* Alteração 2: Cor de fundo do botão no hover */
+            color: #191919; /* Alteração 2: Cor do texto do botão no hover */
+        }
+
+        /* Loading Animation */
+        .loading {
+            display: none;
+            justify-content: center;
+            align-items: center;
+            padding: 3rem;
+        }
+
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 4px solid var(--light);
+            border-top: 4px solid var(--secondary);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        /* Pagination */
+        .pagination {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+            margin: 3rem 0;
+        }
+
+        .page-btn {
+            width: 50px;
+            height: 50px;
+            border: none;
+            background: var(--white);
+            border-radius: 12px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .page-btn:hover,
+        .page-btn.active {
+            background: var(--gradient);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--primary);
+            border-top: 1px solid var(--border-color);
+            color: var(--text-primary);
+            padding: 4rem 0 2rem;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 3rem;
+        }
+
+        .footer-section {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .footer-section h3 {
+            color: var(--light);
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+            font-weight: 700;
+            position: relative;
+        }
+
+        .footer-section h3::after {
+            content: '';
+            position: absolute;
+            bottom: -0.5rem;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background: var(--gradient);
+            border-radius: 2px;
+        }
+
+        .footer-section p {
+            color: var(--light);
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+            gap: 0.75rem;
+            color: rgba(255,255,255,0.8);
+            transition: color 0.3s ease;
+            text-decoration: none;
+        }
+
+        .contact-item:hover {
+            color: white;
+        }
+
+        .contact-item .icon {
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+        }
+        
+        .contact-item .icon svg {
+            stroke: currentColor;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .social-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            background: rgba(255,255,255,0.1);
+            color: white;
+            border: 2px solid rgba(255,255,255,0.2);
+            border-radius: 50%;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-btn:hover {
+            background: rgba(255,255,255,0.2);
+            border-color: rgba(255,255,255,0.4);
+            transform: translateY(-3px) scale(1.1);
+        }
+        
+        .social-btn svg {
+            stroke: currentColor;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border-color);
+            color: var(--text-secondary);
+        }
+
+        .footer-bottom p {
+            color: var(--white);
+            margin: 0;
+            font-size: 0.9rem;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer-logo img {
+            height: 40px;
+            width: auto;
+        }
+
+        .footer-logo span {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        /* Product Modal */
+        .product-modal {
+            display: none;
+            position: fixed;
+            z-index: 10000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.8);
+            backdrop-filter: blur(10px);
+            animation: fadeIn 0.3s ease;
+        }
+
+        .product-modal-content {
+            background-color: var(--bg-card);
+            margin: 5% auto;
+            border-radius: 20px;
+            width: 95%;
+            max-width: 900px;
+            max-height: 90vh;
+            position: relative;
+            animation: modalFadeIn 0.3s ease;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+            display: flex;
+            flex-direction: row;
+        }
+        
+        @keyframes modalFadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .product-modal-image {
+            flex: 1;
+            max-width: 50%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-modal-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            min-height: 400px;
+            background: var(--bg-primary);
+        }
+
+        .product-modal-info {
+            flex: 1;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .product-modal-header {
+            margin-bottom: 1.5rem;
+        }
+
+        .product-modal-category {
+            background: var(--secondary);
+            color: var(--primary);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            display: inline-block;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 1rem;
+        }
+
+        .product-modal-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+            line-height: 1.2;
+        }
+
+        .product-modal-size {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+        }
+
+        .product-modal-description {
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 2rem;
+            font-size: 1rem;
+        }
+
+        .product-modal-price {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 2rem;
+        }
+
+
+
+        .product-modal-actions {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .modal-btn {
+            flex: 1;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 15px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .modal-btn-primary {
+            background: var(--gradient);
+            color: white;
+        }
+
+        .modal-btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0, 117, 162, 0.3);
+        }
+
+        .modal-btn-secondary {
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            border: 2px solid var(--border-color);
+        }
+
+        .modal-btn-secondary:hover {
+            background: var(--border-color);
+        }
+
+        /* Modal Close Button */
+        .modal-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 10;
+        }
+
+        .modal-close:hover {
+            background: rgba(0, 0, 0, 0.7);
+            transform: scale(1.1);
+        }
+
+        /* Contact Modal (existing) */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            z-index: 10000;
+            backdrop-filter: blur(10px);
+        }
+
+        .modal-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: var(--bg-card);
+            border-radius: 24px;
+            padding: 2rem;
+            max-width: 500px;
+            width: 90%;
+            animation: modalSlideIn 0.3s ease;
+        }
+
+        /* Scroll to Top Button */
+        .scroll-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 50px;
+            height: 50px;
+            background: #0075a2;
+            border: none;
+            border-radius: 50%;
+            color: white;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 20px rgba(0, 117, 162, 0.3);
+            transition: all 0.3s ease;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(20px);
+            z-index: 1000;
+        }
+
+        .scroll-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .scroll-to-top:hover {
+            background: #005a7a;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 25px rgba(0, 117, 162, 0.4);
+        }
+
+        .scroll-to-top svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateX(-50%) translateY(0);
+            }
+            40% {
+                transform: translateX(-50%) translateY(-10px);
+            }
+            60% {
+                transform: translateX(-50%) translateY(-5px);
+            }
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @keyframes modalSlideIn {
+            from {
+                transform: translate(-50%, -50%) scale(0.8);
+                opacity: 0;
+            }
+            to {
+                transform: translate(-50%, -50%) scale(1);
+                opacity: 1;
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 1rem;
+                padding: 1rem;
+            }
+            
+            .search-container {
+                margin: 0;
+                max-width: none;
+            }
+            
+            .products-grid {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                gap: 1.5rem;
+            }
+            
+            .filter-tabs {
+                justify-content: flex-start;
+            }
+        }
+
+        /* Utility Classes */
+        .hidden { display: none !important; }
+        .fade-in { animation: fadeInUp 0.6s ease forwards; }
+
+        /* Menu Hambúrguer */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            padding: 0.5rem;
+            background: transparent;
+            border: none;
+            gap: 4px;
+        }
+        
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: white;
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+        
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(6px, 6px);
+        }
+        
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+        
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(6px, -6px);
+        }
+        
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 9999;
+            padding: 2rem;
+            overflow-y: auto;
+        }
+        
+        .mobile-menu.active {
+            background-color: #0075A2;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+        
+        .mobile-menu-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+        
+        .mobile-menu-close {
+            background: transparent;
+            border: none;
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+        
+        .mobile-menu-content {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+        
+        .mobile-search {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid rgba(255,255,255,0.2);
+            border-radius: 25px;
+            background: rgba(255,255,255,0.1);
+            color: white;
+            font-size: 1rem;
+            outline: none;
+        }
+        
+        .mobile-search::placeholder {
+            color: rgba(255,255,255,0.7);
+        }
+        
+        .mobile-nav {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        
+        .mobile-nav-btn {
+            padding: 1rem 1.5rem;
+            background: rgba(255,255,255,0.1);
+            color: white;
+            text-decoration: none;
+            border: 2px solid rgba(255,255,255,0.2);
+            border-radius: 15px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+        
+        .mobile-nav-btn:hover {
+            background: rgba(255,255,255,0.2);
+            border-color: rgba(255,255,255,0.4);
+        }
+        
+
+
+        /* Responsividade Mobile e Tablet */
+        @media screen and (max-width: 768px) {
+            .header-container {
+                padding: 0 1rem;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+            }
+            
+            .search-container {
+                display: none;
+            }
+            
+            .header-actions {
+                display: none;
+            }
+            
+            .hamburger {
+                display: flex;
+            }
+            
+            .nav-btn {
+                padding: 0.5rem 1rem;
+                font-size: 0.9rem;
+            }
+            
+            .hero {
+                padding: 3rem 1rem;
+                text-align: center;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .container {
+                padding: 0 1rem;
+            }
+            
+            .products-grid {
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+                gap: 1.5rem;
+            }
+            
+            .product-card {
+                max-width: 100%;
+            }
+            
+            .filter-tabs {
+                flex-wrap: wrap;
+                gap: 0.5rem;
+                justify-content: center;
+            }
+            
+            .filter-tab {
+                padding: 0.5rem 1rem;
+                font-size: 0.9rem;
+            }
+            
+            .product-modal-content {
+                margin: 2% auto;
+                width: 95%;
+                max-width: 500px;
+                flex-direction: column;
+            }
+            
+            .product-modal-image {
+                width: 100%;
+                height: 300px;
+            }
+            
+            .product-modal-info {
+                padding: 1.5rem;
+            }
+            
+            .contact-modal-content {
+                width: 95%;
+                max-width: 400px;
+                margin: 10% auto;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+                text-align: center;
+            }
+            
+            .social-links {
+                justify-content: center;
+            }
+        }
+        
+        @media screen and (max-width: 480px) {
+            .header {
+                padding: 0.5rem 0;
+            }
+            
+            .header-container {
+                padding: 0 0.5rem;
+            }
+            
+            .logo {
+                height: 50px;
+            }
+            
+            .brand-text {
+                font-size: 1.2rem;
+            }
+            
+            .hero {
+                padding: 2rem 0.5rem;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .container {
+                padding: 0 0.5rem;
+            }
+            
+            .products-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            
+            .product-card {
+                margin: 0 auto;
+            }
+            
+            .filter-tabs {
+                gap: 0.25rem;
+            }
+            
+            .filter-tab {
+                padding: 0.4rem 0.8rem;
+                font-size: 0.8rem;
+            }
+            
+            .product-modal-content {
+                margin: 5% auto;
+                width: 98%;
+            }
+            
+            .product-modal-image {
+                height: 250px;
+            }
+            
+            .product-modal-info {
+                padding: 1rem;
+            }
+            
+            .contact-modal-content {
+                width: 98%;
+                margin: 15% auto;
+                padding: 1.5rem;
+            }
+            
+            .nav-btn {
+                padding: 0.4rem 0.8rem;
+                font-size: 0.8rem;
+            }
+            
+
+        }
+        
+        @media screen and (min-width: 769px) and (max-width: 1024px) {
+            .header-container {
+                padding: 0 1.5rem;
+            }
+            
+            .products-grid {
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+                gap: 2rem;
+            }
+            
+            .hero {
+                padding: 4rem 1.5rem;
+            }
+            
+            .container {
+                padding: 0 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Alteração 1: Banner/Hero Section removido -->
+
+    <!-- Header -->
+    <header class="header">
+        <div class="header-container">
+            <div class="logo-section">
+                <img src="mao na arte logo.png" alt="Casal Mão na Arte" class="logo">
+            </div>
+            
+            <div class="search-container">
+                <input type="text" class="search-input" placeholder="Buscar produtos..." id="searchInput">
+                <span class="search-icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <path d="m21 21-4.35-4.35"></path>
+                    </svg>
+                </span>
+            </div>
+            
+            <div class="header-actions">
+                <a href="#produtos" class="nav-btn">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+                        <line x1="3" y1="6" x2="21" y2="6"></line>
+                        <path d="M16 10a4 4 0 0 1-8 0"></path>
+                    </svg>
+                    Produtos
+                </a>
+                <a href="#sobre" class="nav-btn">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <path d="M12 16v-4"></path>
+                        <path d="M12 8h.01"></path>
+                    </svg>
+                    Sobre
+                </a>
+                <button class="nav-btn" onclick="openModal()">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                    </svg>
+                    Contato
+                </button>
+
+            </div>
+            
+            <!-- Botão Hambúrguer para Mobile -->
+            <button class="hamburger" id="hamburger" onclick="toggleMobileMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+    
+    <!-- Menu Mobile -->
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="mobile-menu-header">
+            <div class="logo-section">
+                <img src="mao na arte logo.png" alt="Casal Mão na Arte" class="logo">
+            </div>
+            <button class="mobile-menu-close" onclick="toggleMobileMenu()">&times;</button>
+        </div>
+        
+        <div class="mobile-menu-content">
+            <input type="text" class="mobile-search" placeholder="Buscar produtos..." id="mobileSearchInput">
+            
+            <div class="mobile-nav">
+                <a href="#produtos" class="mobile-nav-btn" onclick="toggleMobileMenu()">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+                        <line x1="3" y1="6" x2="21" y2="6"></line>
+                        <path d="M16 10a4 4 0 0 1-8 0"></path>
+                    </svg>
+                    Produtos
+                </a>
+                <a href="#sobre" class="mobile-nav-btn" onclick="toggleMobileMenu()">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <path d="M12 16v-4"></path>
+                        <path d="M12 8h.01"></path>
+                    </svg>
+                    Sobre
+                </a>
+                <button class="mobile-nav-btn" onclick="openModal(); toggleMobileMenu();">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                    </svg>
+                    Contato
+                </button>
+                
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Filter Section -->
+    <div class="filter-section">
+        <div class="filter-tabs" id="filterTabs">
+            <button class="filter-tab active" data-category="todos">Todos os Produtos</button>
+            <button class="filter-tab" data-category="sagrada-familia">Sagrada Família</button>
+            <button class="filter-tab" data-category="santos">Santos e Santas</button>
+            <button class="filter-tab" data-category="anjos">Anjos e Querubins</button>
+            <button class="filter-tab" data-category="decorativo">Decorativos</button>
+            <button class="filter-tab" data-category="animais">Animais</button>
+        </div>
+    </div>
+
+    <!-- Products Container -->
+    <div class="products-container" id="produtos">
+        <div class="products-grid" id="productsGrid">
+            <!-- Products will be loaded here -->
+        </div>
+        
+        <div class="loading" id="loading">
+            <div class="spinner"></div>
+        </div>
+
+        <!-- Pagination -->
+        <div class="pagination" id="pagination">
+            <!-- Pagination buttons will be generated here -->
+        </div>
+    </div>
+
+    <!-- Product Modal -->
+    <div id="productModal" class="product-modal">
+        <div class="product-modal-content">
+            <button class="modal-close" onclick="closeProductModal()">&times;</button>
+            <div class="product-modal-image">
+                <img id="modalProductImage" src="" alt="">
+            </div>
+            <div class="product-modal-info">
+                <div class="product-modal-header">
+                    <div id="modalProductCategory" class="product-modal-category"></div>
+                    <h2 id="modalProductTitle" class="product-modal-title"></h2>
+                    <p id="modalProductSize" class="product-modal-size"></p>
+                    <p id="modalProductDescription" class="product-modal-description"></p>
+                </div>
+                <div>
+                    <div id="modalProductPrice" class="product-modal-price"></div>
+                    <div class="product-modal-actions">
+                        <button class="modal-btn modal-btn-primary" onclick="contactWhatsAppFromModal()">
+                            💬 Encomendar via WhatsApp
+                        </button>
+                        <button class="modal-btn modal-btn-secondary" onclick="closeProductModal()">
+                            Fechar
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer" id="sobre">
+        <div class="footer-content">
+            <div class="footer-section">
+                <div class="footer-logo">
+                    <img src="mao na arte logo.png" alt="Casal Mão na Arte">
+                </div>
+                <p>Somos um casal apaixonado por transformar gesso em arte. Cada peça que criamos carrega nossas mãos, nosso cuidado e uma boa dose de amor. Mais do que decoração, entregamos sentimentos moldados com carinho para deixar seu lar ainda mais especial.</p>
+                <div class="social-links">
+                    <a href="https://www.instagram.com/casalmaonaarte/" class="social-btn" title="Instagram">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                            <path d="m16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+                            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+                        </svg>
+                    </a>
+                    <a href="https://wa.me/5586994013412?text=Olá! Tenho interesse em seus produtos artesanais." class="social-btn" title="WhatsApp">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="footer-section">
+                <h3>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display: inline; margin-right: 8px;">
+                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                    </svg>
+                    Contato
+                </h3>
+                <a href="tel:+5586994013412" class="contact-item">
+                    <span class="icon">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                        </svg>
+                    </span>
+                    <span>(86) 99401-3412</span>
+                </a>
+                <a href="mailto:casalmaonaarte@gmail.com" class="contact-item">
+                    <span class="icon">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                            <polyline points="22,6 12,13 2,6"/>
+                        </svg>
+                    </span>
+                    <span>casalmaonaarte@gmail.com</span>
+                </a>
+                <div class="contact-item">
+                    <span class="icon">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                            <circle cx="12" cy="10" r="3"/>
+                        </svg>
+                    </span>
+                    <span>Parnaíba, PI</span>
+                </div>
+            </div>
+            
+            <div class="footer-section">
+                <h3>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display: inline; margin-right: 8px;">
+                        <circle cx="12" cy="12" r="10"/>
+                        <path d="M12 16v-4"/>
+                        <path d="M12 8h.01"/>
+                    </svg>
+                    Informações
+                </h3>
+                <p>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display: inline; margin-right: 8px;">
+                        <path d="M1 3h15l-1 9h-13l-1-9z"/>
+                        <path d="M16 8v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8"/>
+                    </svg>
+                    Entregamos em todo o Brasil
+                </p>
+                <p>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display: inline; margin-right: 8px;">
+                        <rect x="1" y="4" width="22" height="16" rx="2" ry="2"/>
+                        <line x1="1" y1="10" x2="23" y2="10"/>
+                    </svg>
+                    Aceitamos PIX, cartão e dinheiro
+                </p>
+                <p>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display: inline; margin-right: 8px;">
+                        <circle cx="12" cy="12" r="10"/>
+                        <polyline points="12,6 12,12 16,14"/>
+                    </svg>
+                    Atendimento de seg a sáb
+                </p>
+                <p>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display: inline; margin-right: 8px;">
+                        <polyline points="20,6 9,17 4,12"/>
+                    </svg>
+                    Embalagem especial para presentes
+                </p>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>Casal Mão na Arte | Feito por Bruno Maykon</p>
+        </div>
+    </footer>
+
+    <!-- Modal -->
+    <div class="modal" id="contactModal">
+        <div class="modal-content">
+            <h3 style="margin-bottom: 1rem; color: var(--primary);">Entre em Contato</h3>
+            <p style="margin-bottom: 1.5rem; color: var(--text-secondary);">Escolha a melhor forma de entrar em contato conosco:</p>
+            
+            <div style="display: flex; flex-direction: column; gap: 1rem;">
+                <button class="btn btn-primary" onclick="contactWhatsApp('Olá! Vim através do catálogo online.')">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right: 8px;">
+                        <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
+                    </svg>
+                    WhatsApp
+                </button>
+                <button class="btn btn-outline" onclick="window.location.href='tel:+5586994013412'">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right: 8px;">
+                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                    </svg>
+                    Ligar Agora
+                </button>
+                <button class="btn btn-outline" onclick="window.location.href='mailto:casalmaonaarte@gmail.com'">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right: 8px;">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                        <polyline points="22,6 12,13 2,6"/>
+                    </svg>
+                    E-mail
+                </button>
+            </div>
+            
+            <button onclick="closeModal()" style="position: absolute; top: 1rem; right: 1rem; background: none; border: none; font-size: 1.5rem; cursor: pointer; color: var(--text-secondary);">×</button>
+        </div>
+    </div>
+
+    <script>
+        // Produtos reais baseados nas imagens disponíveis
+        const products = [
+            {
+                id: 1,
+                name: "Sagrada Família",
+                category: "sagrada-familia",
+                price: 20.00,
+                size: "10cm",
+                image: "Imagens/Sagrada família 10cm $20.jpg",
+                badge: "",
+                description: "Peça artesanal em gesso da Sagrada Família"
+            },
+            {
+                id: 2,
+                name: "Sagrada Família",
+                category: "sagrada-familia",
+                price: 40.00,
+                size: "20cm",
+                image: "Imagens/Sagrada família 20cm $40.jpg",
+                badge: "",
+                description: "Peça artesanal em gesso da Sagrada Família"
+            },
+            {
+                id: 3,
+                name: "Sagrada Família",
+                category: "sagrada-familia",
+                price: 70.00,
+                size: "28cm",
+                image: "Imagens/Sagrada família 28cm $70.jpg",
+                badge: "Premium",
+                description: "Peça artesanal em gesso da Sagrada Família"
+            },
+            {
+                id: 4,
+                name: "Sagrada Família",
+                category: "sagrada-familia",
+                price: 40.00,
+                size: "30cm",
+                image: "Imagens/Sagrada família 30cm $40.jpg",
+                badge: "",
+                description: "Peça artesanal em gesso da Sagrada Família"
+            },
+            {
+                id: 5,
+                name: "Sagrada Família",
+                category: "sagrada-familia",
+                price: 80.00,
+                size: "30cm",
+                image: "Imagens/Sagrada família 30cm $80.jpg",
+                badge: "Premium",
+                description: "Peça artesanal em gesso da Sagrada Família - Acabamento premium"
+            },
+            {
+                id: 6,
+                name: "Nossa Senhora Aparecida",
+                category: "santos",
+                price: 25.00,
+                size: "14cm",
+                image: "Imagens/Nossa Senhora Aparecida 14cm $25.jpg",
+                badge: "",
+                description: "Imagem da padroeira do Brasil"
+            },
+            {
+                id: 7,
+                name: "Nossa Senhora Aparecida",
+                category: "santos",
+                price: 50.00,
+                size: "30cm",
+                image: "Imagens/Nossa Senhora Aparecida 30cm $50.jpg",
+                badge: "",
+                description: "Imagem da padroeira do Brasil"
+            },
+            {
+                id: 8,
+                name: "Nossa Senhora das Graças",
+                category: "santos",
+                price: 80.00,
+                size: "40cm",
+                image: "Imagens/Nossa Senhora das graças 40cm $80.jpg",
+                badge: "Premium",
+                description: "Imagem de Nossa Senhora das Graças"
+            },
+            {
+                id: 9,
+                name: "Nossa Senhora das Dores",
+                category: "santos",
+                price: 50.00,
+                size: "30cm",
+                image: "Imagens/Nossa Senhora dasdores 30cm $50.jpg",
+                badge: "",
+                description: "Imagem de Nossa Senhora das Dores"
+            },
+            {
+                id: 10,
+                name: "Santa Clara",
+                category: "santos",
+                price: 50.00,
+                size: "30cm",
+                image: "Imagens/Santa Clara 30cm $50.jpg",
+                badge: "",
+                description: "Imagem de Santa Clara"
+            },
+            {
+                id: 11,
+                name: "Santa Terezinha",
+                category: "santos",
+                price: 50.00,
+                size: "30cm",
+                image: "Imagens/Santa Terezinha 30cm $50.jpg",
+                badge: "",
+                description: "Imagem de Santa Terezinha"
+            },
+            {
+                id: 12,
+                name: "Santa Luzia",
+                category: "santos",
+                price: 80.00,
+                size: "32cm",
+                image: "Imagens/Santa luzia 32cm $80.jpg",
+                badge: "Premium",
+                description: "Imagem de Santa Luzia"
+            },
+            {
+                id: 13,
+                name: "São Francisco",
+                category: "santos",
+                price: 50.00,
+                size: "30cm",
+                image: "Imagens/São Francisco 30cm $50.jpg",
+                badge: "",
+                description: "Imagem de São Francisco de Assis"
+            },
+            {
+                id: 14,
+                name: "São José",
+                category: "santos",
+                price: 60.00,
+                size: "30cm",
+                image: "Imagens/São José 30cm $60.jpg",
+                badge: "",
+                description: "Imagem de São José"
+            },
+            {
+                id: 15,
+                name: "São José - Quadro",
+                category: "santos",
+                price: 75.00,
+                size: "50×38cm",
+                image: "Imagens/São José 50×38 $75.jpg",
+                badge: "Quadro",
+                description: "Quadro decorativo de São José"
+            },
+            {
+                id: 16,
+                name: "Miguel Arcanjo",
+                category: "anjos",
+                price: 30.00,
+                size: "18cm",
+                image: "Imagens/Miguel arcanjo 18cm $30.jpg",
+                badge: "",
+                description: "Imagem do Arcanjo Miguel"
+            },
+            {
+                id: 17,
+                name: "Miguel Arcanjo",
+                category: "anjos",
+                price: 30.00,
+                size: "27cm",
+                image: "Imagens/Miguel arcanjo 27cm $30.jpg",
+                badge: "",
+                description: "Imagem do Arcanjo Miguel"
+            },
+            {
+                id: 18,
+                name: "Trio Querubim",
+                category: "anjos",
+                price: 30.00,
+                size: "20cm",
+                image: "Imagens/Trio querubin 20cm $30.jpg",
+                badge: "",
+                description: "Conjunto de três querubins decorativos"
+            },
+            {
+                id: 19,
+                name: "Coruja",
+                category: "animais",
+                price: 25.00,
+                size: "12cm",
+                image: "Imagens/Coruja 12cm $25.jpg",
+                badge: "",
+                description: "Coruja decorativa em gesso"
+            },
+            {
+                id: 20,
+                name: "Coruja",
+                category: "animais",
+                price: 25.00,
+                size: "15cm",
+                image: "Imagens/Coruja 15cm $25.jpg",
+                badge: "",
+                description: "Coruja decorativa em gesso"
+            },
+            {
+                id: 21,
+                name: "Coruja",
+                category: "animais",
+                price: 30.00,
+                size: "20cm",
+                image: "Imagens/Coruja 20cm $30.jpg",
+                badge: "",
+                description: "Coruja decorativa em gesso"
+            },
+            {
+                id: 22,
+                name: "Coruja",
+                category: "animais",
+                price: 40.00,
+                size: "28cm",
+                image: "Imagens/Coruja 28 cm $40.jpg",
+                badge: "",
+                description: "Coruja decorativa em gesso"
+            },
+            {
+                id: 23,
+                name: "Quadro Coruja",
+                category: "decorativo",
+                price: 75.00,
+                size: "50×36cm",
+                image: "Imagens/Quadro curuja 50×36 $75.jpg",
+                badge: "Quadro",
+                description: "Quadro decorativo com coruja"
+            },
+            {
+                id: 24,
+                name: "Galo",
+                category: "animais",
+                price: 50.00,
+                size: "38cm",
+                image: "Imagens/Galo 38cm $50.jpg",
+                badge: "",
+                description: "Galo decorativo em gesso"
+            },
+            {
+                id: 25,
+                name: "Léo Pardo",
+                category: "animais",
+                price: 60.00,
+                size: "29cm",
+                image: "Imagens/Léo pardo 29cm $60.jpg",
+                badge: "",
+                description: "Leopardo decorativo em gesso"
+            },
+            {
+                id: 26,
+                name: "Mimi Cachorro",
+                category: "animais",
+                price: 20.00,
+                size: "12cm",
+                image: "Imagens/Mimi cachorro 12cm$20.jpg",
+                badge: "",
+                description: "Cachorro decorativo em gesso"
+            },
+            {
+                id: 27,
+                name: "Égua",
+                category: "animais",
+                price: 60.00,
+                size: "26cm",
+                image: "Imagens/Égua 26 cm $60.jpg",
+                badge: "",
+                description: "Égua decorativa em gesso"
+            },
+            {
+                id: 28,
+                name: "Africana",
+                category: "decorativo",
+                price: 60.00,
+                size: "25cm",
+                image: "Imagens/Africana 25cm $60.jpg",
+                badge: "",
+                description: "Estatueta decorativa africana"
+            },
+            {
+                id: 29,
+                name: "Africana (Variação de Cor)",
+                category: "decorativo",
+                price: 60.00,
+                size: "25cm",
+                image: "Imagens/Africana (outra variacao de cor) 25cm $60.jpg",
+                badge: "",
+                description: "Estatueta decorativa africana em cor alternativa"
+            },
+            {
+                id: 30,
+                name: "Africana",
+                category: "decorativo",
+                price: 50.00,
+                size: "32cm",
+                image: "Imagens/Africana 32cm $50.jpg",
+                badge: "",
+                description: "Estatueta decorativa africana"
+            },
+            {
+                id: 31,
+                name: "Africana",
+                category: "decorativo",
+                price: 60.00,
+                size: "36cm",
+                image: "Imagens/Africana 36cm $60.jpg",
+                badge: "",
+                description: "Estatueta decorativa africana"
+            },
+            {
+                id: 32,
+                name: "Buda",
+                category: "decorativo",
+                price: 60.00,
+                size: "30cm",
+                image: "Imagens/Buda 30cm $60.jpg",
+                badge: "",
+                description: "Estatueta decorativa de Buda"
+            },
+            {
+                id: 33,
+                name: "Buda",
+                category: "decorativo",
+                price: 80.00,
+                size: "42cm",
+                image: "Imagens/Buda 42cm $80.jpg",
+                badge: "Premium",
+                description: "Estatueta decorativa de Buda - Tamanho grande"
+            },
+            {
+                id: 34,
+                name: "Namoradeira",
+                category: "decorativo",
+                price: 25.00,
+                size: "11cm",
+                image: "Imagens/Namoradeira 11cm 25reais.jpg",
+                badge: "",
+                description: "Estatueta decorativa de namoradeira"
+            },
+            {
+                id: 35,
+                name: "Namoradeira",
+                category: "decorativo",
+                price: 30.00,
+                size: "17cm",
+                image: "Imagens/Namoradeira 17cm $30.jpg",
+                badge: "",
+                description: "Estatueta decorativa de namoradeira"
+            },
+            {
+                id: 36,
+                name: "Titã",
+                category: "decorativo",
+                price: 50.00,
+                size: "30cm",
+                image: "Imagens/Titã 30cm $50.jpg",
+                badge: "",
+                description: "Estatueta decorativa de titã"
+            }
+        ];
+
+        let currentPage = 1;
+        const itemsPerPage = 32; // Alteração 3: Mostrar até 32 produtos
+        let filteredProducts = [...products];
+
+        // Initialize the page
+        document.addEventListener('DOMContentLoaded', function() {
+            renderProducts();
+            setupEventListeners();
+            createPagination();
+        });
+
+        // Scroll to Top functionality
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        // Show/hide scroll to top button
+        window.addEventListener('scroll', function() {
+            const scrollToTopBtn = document.getElementById('scrollToTop');
+            if (window.pageYOffset > 300) {
+                scrollToTopBtn.classList.add('visible');
+            } else {
+                scrollToTopBtn.classList.remove('visible');
+            }
+        });
+
+        function setupEventListeners() {
+            // Filter tabs
+            document.querySelectorAll('.filter-tab').forEach(tab => {
+                tab.addEventListener('click', function() {
+                    const category = this.dataset.category;
+                    filterProducts(category);
+                    
+                    // Update active tab
+                    document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
+                    this.classList.add('active');
+                });
+            });
+
+            // Search functionality
+            document.getElementById('searchInput').addEventListener('input', function() {
+                const searchTerm = this.value.toLowerCase();
+                searchProducts(searchTerm);
+            });
+        }
+
+        function filterProducts(category) {
+            if (category === 'todos') {
+                filteredProducts = [...products];
+            } else {
+                filteredProducts = products.filter(product => product.category === category);
+            }
+            currentPage = 1;
+            renderProducts();
+            createPagination();
+        }
+
+        function searchProducts(searchTerm) {
+            if (searchTerm === '') {
+                filteredProducts = [...products];
+            } else {
+                filteredProducts = products.filter(product =>
+                    product.name.toLowerCase().includes(searchTerm) ||
+                    product.description.toLowerCase().includes(searchTerm)
+                );
+            }
+            currentPage = 1;
+            renderProducts();
+            createPagination();
+        }
+
+        function renderProducts() {
+            const grid = document.getElementById('productsGrid');
+            const startIndex = (currentPage - 1) * itemsPerPage;
+            const endIndex = startIndex + itemsPerPage;
+            const productsToShow = filteredProducts.slice(startIndex, endIndex);
+
+            if (productsToShow.length === 0) {
+                grid.innerHTML = `
+                    <div style="grid-column: 1/-1; text-align: center; padding: 3rem;">
+                        <h3 style="color: var(--gray); margin-bottom: 1rem;">Nenhum produto encontrado</h3>
+                        <p style="color: var(--gray);">Tente ajustar os filtros ou termo de busca</p>
+                    </div>
+                `;
+                return;
+            }
+
+            grid.innerHTML = productsToShow.map(product => `
+                <div class="product-card fade-in" data-category="${product.category}" onclick="openProductModal(${product.id})" style="cursor: pointer;">
+                    <div class="product-image">
+                        <img src="${product.image}" alt="${product.name}">
+                        <div class="product-badge">${getCategoryName(product.category)}</div>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">${product.name}</h3>
+                        <p class="product-size">${product.size}</p>
+                        <div class="product-price">R$ ${product.price.toFixed(2).replace('.', ',')}</div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary" onclick="event.stopPropagation(); contactWhatsApp('${product.name} - ${product.size}')">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right: 8px;">
+                                    <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
+                                </svg>
+                                Encomendar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function createPagination() {
+            const totalPages = Math.ceil(filteredProducts.length / itemsPerPage);
+            const paginationContainer = document.getElementById('pagination');
+            
+            if (totalPages <= 1) {
+                paginationContainer.style.display = 'none';
+                return;
+            }
+            
+            paginationContainer.style.display = 'flex';
+            
+            let paginationHTML = '';
+            
+            // Previous button
+            if (currentPage > 1) {
+                paginationHTML += `<button class="page-btn" onclick="changePage(${currentPage - 1})">‹</button>`;
+            }
+            
+            // Page numbers
+            for (let i = 1; i <= totalPages; i++) {
+                if (i === currentPage) {
+                    paginationHTML += `<button class="page-btn active">${i}</button>`;
+                } else if (i === 1 || i === totalPages || Math.abs(i - currentPage) <= 2) {
+                    paginationHTML += `<button class="page-btn" onclick="changePage(${i})">${i}</button>`;
+                } else if (i === currentPage - 3 || i === currentPage + 3) {
+                    paginationHTML += `<span style="padding: 0 0.5rem;">...</span>`;
+                }
+            }
+            
+            // Next button
+            if (currentPage < totalPages) {
+                paginationHTML += `<button class="page-btn" onclick="changePage(${currentPage + 1})">›</button>`;
+            }
+            
+            paginationContainer.innerHTML = paginationHTML;
+        }
+
+        function changePage(page) {
+            currentPage = page;
+            renderProducts();
+            createPagination();
+            
+            // Scroll to top of products
+            document.querySelector('.products-container').scrollIntoView({ 
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }
+
+        function getCategoryName(category) {
+            const categoryNames = {
+                'sagrada-familia': 'Sagrada Família',
+                'santos': 'Santos',
+                'anjos': 'Anjos',
+                'decorativo': 'Decorativo',
+                'infantil': 'Infantil',
+                'natalino': 'Natalino',
+                'pascoa': 'Páscoa',
+                'animais': 'Animais'
+            };
+            return categoryNames[category] || category;
+        }
+
+        // Alias para compatibilidade com o modal
+        function getCategoryDisplayName(category) {
+            return getCategoryName(category);
+        }
+
+        function contactWhatsApp(productName = '') {
+            const message = productName 
+                ? `Olá, tudo bem? Tenho interesse na peça de ${productName}... Assim que possível, me responda, fico no seu aguardo.`
+                : 'Olá! Vim através do catálogo online e gostaria de mais informações sobre os produtos.';
+            
+            const phoneNumber = '5586994013412';
+            const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+            window.open(url, '_blank');
+        }
+
+        function openModal() {
+            document.getElementById('contactModal').style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            document.getElementById('contactModal').style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal on outside click
+        window.addEventListener('click', function(event) {
+            const modal = document.getElementById('contactModal');
+            if (event.target === modal) {
+                closeModal();
+            }
+        });
+
+        // Smooth scroll behavior for all internal links
+        document.addEventListener('click', function(e) {
+            if (e.target.matches('a[href^="#"]')) {
+                e.preventDefault();
+                const target = document.querySelector(e.target.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            }
+        });
+
+        // Add entrance animations to products when they come into view
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe product cards for animations
+        function observeProducts() {
+            document.querySelectorAll('.product-card').forEach(card => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(30px)';
+                card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(card);
+            });
+        }
+
+        // Call observe function after rendering products
+        const originalRenderProducts = renderProducts;
+        renderProducts = function() {
+            originalRenderProducts();
+            setTimeout(observeProducts, 100);
+        };
+
+        // Add keyboard navigation
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeModal();
+            }
+            
+            if (e.key === 'ArrowLeft' && currentPage > 1) {
+                changePage(currentPage - 1);
+            }
+            
+            if (e.key === 'ArrowRight') {
+                const totalPages = Math.ceil(filteredProducts.length / itemsPerPage);
+                if (currentPage < totalPages) {
+                    changePage(currentPage + 1);
+                }
+            }
+        });
+
+        // Performance optimization: Debounce search
+        function debounce(func, wait) {
+            let timeout;
+            return function executedFunction(...args) {
+                const later = () => {
+                    clearTimeout(timeout);
+                    func(...args);
+                };
+                clearTimeout(timeout);
+                timeout = setTimeout(later, wait);
+            };
+        }
+
+        // Apply debounce to search
+        const debouncedSearch = debounce(searchProducts, 300);
+        document.getElementById('searchInput').removeEventListener('input', searchProducts); // Original listener removed for safety
+        document.getElementById('searchInput').addEventListener('input', function() {
+            debouncedSearch(this.value.toLowerCase());
+        });
+
+        // Product Modal Functions
+        function openProductModal(productId) {
+            const product = products.find(p => p.id === productId);
+            if (!product) return;
+            
+            document.getElementById('modalProductImage').src = product.image;
+            document.getElementById('modalProductImage').alt = product.name;
+            document.getElementById('modalProductCategory').textContent = getCategoryDisplayName(product.category);
+            document.getElementById('modalProductTitle').textContent = product.name;
+            document.getElementById('modalProductSize').textContent = `Tamanho: ${product.size}`;
+            document.getElementById('modalProductDescription').textContent = product.description;
+            document.getElementById('modalProductPrice').textContent = `R$ ${product.price.toFixed(2).replace('.', ',')}`;
+            
+            document.getElementById('productModal').style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+            
+            // Store current product for WhatsApp contact
+            window.currentModalProduct = product;
+        }
+        
+        function closeProductModal() {
+            document.getElementById('productModal').style.display = 'none';
+            document.body.style.overflow = 'auto';
+            window.currentModalProduct = null;
+        }
+        
+        function contactWhatsAppFromModal() {
+            if (window.currentModalProduct) {
+                contactWhatsApp(window.currentModalProduct.name);
+            }
+        }
+        
+        // Close modal on outside click
+        document.addEventListener('click', function(event) {
+            const productModal = document.getElementById('productModal');
+            if (event.target === productModal) {
+                closeProductModal();
+            }
+        });
+        
+        // Add keyboard support for product modal
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeProductModal();
+            }
+        });
+
+
+        
+        // Função para alternar o menu mobile
+        function toggleMobileMenu() {
+            const hamburger = document.getElementById('hamburger');
+            const mobileMenu = document.getElementById('mobileMenu');
+            
+            hamburger.classList.toggle('active');
+            mobileMenu.classList.toggle('active');
+            
+            // Prevenir scroll do body quando menu está aberto
+            if (mobileMenu.classList.contains('active')) {
+                document.body.style.overflow = 'hidden';
+            } else {
+                document.body.style.overflow = 'auto';
+            }
+        }
+        
+        // Sincronizar busca mobile com desktop
+        document.getElementById('mobileSearchInput').addEventListener('input', function(e) {
+            const searchValue = e.target.value;
+            document.getElementById('searchInput').value = searchValue;
+            
+            // Trigger search function
+            const event = new Event('input', { bubbles: true });
+            document.getElementById('searchInput').dispatchEvent(event);
+        });
+        
+
+        
+        // Fechar menu mobile ao clicar fora
+        document.addEventListener('click', function(event) {
+            const mobileMenu = document.getElementById('mobileMenu');
+            const hamburger = document.getElementById('hamburger');
+            
+            if (mobileMenu.classList.contains('active') && 
+                !mobileMenu.contains(event.target) && 
+                !hamburger.contains(event.target)) {
+                toggleMobileMenu();
+            }
+        });
+        
+        // Fechar menu mobile com tecla ESC
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                const mobileMenu = document.getElementById('mobileMenu');
+                if (mobileMenu.classList.contains('active')) {
+                    toggleMobileMenu();
+                }
+            }
+        });
+    </script>
+
+    <!-- Scroll to Top Button -->
+    <button class="scroll-to-top" id="scrollToTop" onclick="scrollToTop()">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M18 15l-6-6-6 6"></path>
+        </svg>
+    </button>
+</body>
+</html>
