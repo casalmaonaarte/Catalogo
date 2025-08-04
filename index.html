@@ -226,6 +226,7 @@
             max-width: 1400px;
             margin: 3rem auto;
             padding: 0 2rem;
+            display: none;
         }
 
         .filter-tabs {
@@ -397,25 +398,30 @@
         }
 
         .product-info {
-            padding: 1.5rem;
-            position: relative;
-            z-index: 2;
-            text-align: center;
-        }
+                padding: 1rem;
+                position: relative;
+                z-index: 2;
+                text-align: center;
+            }
+            
+            .product-name {
+                font-size: 1rem;
+                margin: 0.5rem 0;
+                line-height: 1.2;
+            }
+            
+            .product-size {
+                font-size: 0.8rem;
+                margin-bottom: 0.5rem;
+            }
+            
+            .product-price {
+                font-size: 1.2rem;
+                margin-bottom: 0.5rem;
+            }
 
         .product-category {
-            color: var(--text-secondary);
-            font-size: 0.85rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.8px;
-            margin-bottom: 0.5rem;
-            background: var(--secondary);
-            color: var(--primary);
-            padding: 0.25rem 0.75rem;
-            border-radius: 15px;
-            display: inline-block;
-            font-size: 0.75rem;
+            display: none;
         }
 
         .product-name {
@@ -668,189 +674,11 @@
             color: var(--primary);
         }
 
-        /* Product Modal */
-        .product-modal {
-            display: none;
-            position: fixed;
-            z-index: 10000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0,0,0,0.8);
-            backdrop-filter: blur(10px);
-            animation: fadeIn 0.3s ease;
-        }
+        /* Product Modal - REMOVED */
 
-        .product-modal-content {
-            background-color: var(--bg-card);
-            margin: 5% auto;
-            border-radius: 20px;
-            width: 95%;
-            max-width: 600px;
-            max-height: 90vh;
-            position: relative;
-            animation: modalFadeIn 0.3s ease;
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            text-align: center;
-        }
-        
-        @keyframes modalFadeIn {
-            from {
-                opacity: 0;
-                transform: scale(0.9);
-            }
-            to {
-                opacity: 1;
-                transform: scale(1);
-            }
-        }
+        /* Modal buttons - REMOVED */
 
-        .product-modal-image {
-            flex: 2;
-            position: relative;
-            overflow: hidden;
-            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
-            border-radius: 15px;
-            margin: 1.5rem;
-            padding: 1rem;
-            box-shadow: inset 0 2px 10px rgba(0,0,0,0.1);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .product-modal-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-            max-height: 400px;
-            border-radius: 10px;
-        }
-
-        .product-modal-info {
-            flex: 1;
-            padding: 1.5rem;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-        }
-
-        .product-modal-header {
-            margin-bottom: 1.5rem;
-        }
-
-        .product-modal-category {
-            background: var(--secondary);
-            color: var(--primary);
-            padding: 0.4rem 1rem;
-            border-radius: 20px;
-            display: inline-block;
-            font-size: 0.8rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-bottom: 0.8rem;
-        }
-
-        .product-modal-title {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: var(--text-primary);
-            margin-bottom: 0.5rem;
-            line-height: 1.2;
-        }
-
-        .product-modal-size {
-            color: var(--text-secondary);
-            font-size: 1rem;
-            margin-bottom: 1rem;
-            font-weight: 500;
-        }
-
-        .product-modal-description {
-            color: var(--text-secondary);
-            line-height: 1.6;
-            margin-bottom: 1.5rem;
-            font-size: 0.95rem;
-        }
-
-        .product-modal-price {
-            font-size: 2.2rem;
-            font-weight: 700;
-            color: var(--primary);
-            margin-bottom: 1.5rem;
-        }
-
-
-
-        .product-modal-actions {
-            display: flex;
-            gap: 1rem;
-        }
-
-        .modal-btn {
-            flex: 1;
-            padding: 1rem 2rem;
-            border: none;
-            border-radius: 15px;
-            font-weight: 600;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            text-align: center;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.5rem;
-        }
-
-        .modal-btn-primary {
-            background: var(--gradient);
-            color: white;
-        }
-
-        .modal-btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(0, 117, 162, 0.3);
-        }
-
-        .modal-btn-secondary {
-            background: var(--bg-primary);
-            color: var(--text-primary);
-            border: 2px solid var(--border-color);
-        }
-
-        .modal-btn-secondary:hover {
-            background: var(--border-color);
-        }
-
-        /* Modal Close Button */
-        .modal-close {
-            position: absolute;
-            top: 1rem;
-            right: 1rem;
-            background: rgba(0, 0, 0, 0.5);
-            color: white;
-            border: none;
-            border-radius: 50%;
-            width: 40px;
-            height: 40px;
-            font-size: 1.5rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            z-index: 10;
-        }
-
-        .modal-close:hover {
-            background: rgba(0, 0, 0, 0.7);
-            transform: scale(1.1);
-        }
+        /* Modal Close Button - REMOVED */
 
         /* Contact Modal (existing) */
         .modal {
@@ -1015,15 +843,7 @@
             transform: scale(1.1);
         }
         
-        /* Hover effect for clickable images */
-        .product-modal-image img {
-            cursor: pointer;
-            transition: transform 0.3s ease;
-        }
-        
-        .product-modal-image img:hover {
-            transform: scale(1.05);
-        }
+        /* Hover effect for clickable images - REMOVED */
 
         /* Responsive */
         @media (max-width: 768px) {
@@ -1213,12 +1033,45 @@
             }
             
             .products-grid {
-                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-                gap: 1.5rem;
+                grid-template-columns: 1fr;
+                gap: 1rem;
             }
             
             .product-card {
                 max-width: 100%;
+                text-align: center;
+            }
+            
+            .product-card .product-info {
+                padding: 0.75rem;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+            
+            .product-card .product-name {
+                font-size: 0.9rem;
+                margin: 0.25rem 0;
+                line-height: 1.1;
+            }
+            
+            .product-card .product-size {
+                font-size: 0.75rem;
+                margin-bottom: 0.25rem;
+            }
+            
+            .product-card .product-price {
+                font-size: 1.1rem;
+                margin-bottom: 0.25rem;
+                font-weight: 600;
+            }
+            
+            .product-card .product-category {
+                font-size: 0.65rem;
+                padding: 0.2rem 0.5rem;
+                margin-bottom: 0.25rem;
+                align-self: center;
             }
             
             .filter-tabs {
@@ -1232,100 +1085,7 @@
                 font-size: 0.9rem;
             }
             
-            .product-modal-content {
-                margin: 1rem auto;
-                width: 95%;
-                max-width: 500px;
-                flex-direction: column;
-                max-height: 95vh;
-                overflow-y: auto;
-                display: flex;
-                border-radius: 15px;
-                text-align: center;
-            }
-            
-            .product-modal-image {
-                flex: 2;
-                background: linear-gradient(135deg, #f8f9fa, #e9ecef);
-                border-radius: 15px;
-                margin: 1rem;
-                padding: 1rem;
-                box-shadow: inset 0 2px 10px rgba(0,0,0,0.1);
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                min-height: 250px;
-            }
-            
-            .product-modal-image img {
-                width: 100%;
-                height: 100%;
-                object-fit: contain;
-                max-height: 300px;
-                border-radius: 10px;
-            }
-            
-            .product-modal-info {
-                padding: 1rem;
-                flex-shrink: 0;
-                display: flex;
-                flex-direction: column;
-                gap: 0.5rem;
-                align-items: center;
-                text-align: center;
-            }
-            
-            .product-modal-header {
-                margin-bottom: 0;
-            }
-            
-            .product-modal-category {
-                padding: 0.2rem 0.6rem;
-                font-size: 0.7rem;
-                margin-bottom: 0.5rem;
-                align-self: center;
-            }
-            
-            .product-modal-title {
-                font-size: 1.4rem;
-                margin-bottom: 0.25rem;
-                line-height: 1.2;
-            }
-            
-            .product-modal-size {
-                font-size: 0.9rem;
-                margin-bottom: 0.5rem;
-                color: var(--text-secondary);
-            }
-            
-            .product-modal-description {
-                font-size: 0.85rem;
-                margin-bottom: 0.75rem;
-                line-height: 1.4;
-            }
-            
-            .product-modal-price {
-                font-size: 1.8rem;
-                margin-bottom: 1rem;
-                font-weight: 700;
-            }
-            
-            .product-modal-actions {
-                flex-direction: column;
-                gap: 0;
-                margin-top: auto;
-            }
-            
-            .modal-btn {
-                padding: 0.8rem 1rem;
-                font-size: 0.9rem;
-                border-radius: 10px;
-                font-weight: 600;
-            }
-            
-            .modal-btn-secondary {
-                display: none;
-            }
+            /* Product modal styles - REMOVED */
             
             .modal-close {
                 display: none;
@@ -1343,7 +1103,20 @@
                 text-align: center;
             }
             
+            .footer-section {
+                align-items: center;
+            }
+            
+            .footer-section h3::after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+            
             .social-links {
+                justify-content: center;
+            }
+            
+            .contact-item {
                 justify-content: center;
             }
         }
@@ -1383,11 +1156,44 @@
             
             .products-grid {
                 grid-template-columns: 1fr;
-                gap: 1rem;
+                gap: 0.75rem;
             }
             
             .product-card {
                 margin: 0 auto;
+                text-align: center;
+            }
+            
+            .product-card .product-info {
+                padding: 0.5rem;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+            
+            .product-card .product-name {
+                font-size: 0.85rem;
+                margin: 0.2rem 0;
+                line-height: 1.1;
+            }
+            
+            .product-card .product-size {
+                font-size: 0.7rem;
+                margin-bottom: 0.2rem;
+            }
+            
+            .product-card .product-price {
+                font-size: 1rem;
+                margin-bottom: 0.2rem;
+                font-weight: 600;
+            }
+            
+            .product-card .product-category {
+                font-size: 0.6rem;
+                padding: 0.15rem 0.4rem;
+                margin-bottom: 0.2rem;
+                align-self: center;
             }
             
             .filter-tabs {
@@ -1399,91 +1205,7 @@
                 font-size: 0.8rem;
             }
             
-            .product-modal-content {
-                margin: 0.5rem auto;
-                width: 98%;
-                max-height: 95vh;
-                display: flex;
-                border-radius: 12px;
-                overflow-y: auto;
-                text-align: center;
-            }
-            
-            .product-modal-image {
-                flex: 2;
-                background: linear-gradient(135deg, #f8f9fa, #e9ecef);
-                border-radius: 12px;
-                margin: 0.8rem;
-                padding: 0.8rem;
-                box-shadow: inset 0 2px 8px rgba(0,0,0,0.1);
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                min-height: 200px;
-            }
-            
-            .product-modal-image img {
-                width: 100%;
-                height: 100%;
-                object-fit: contain;
-                max-height: 250px;
-                border-radius: 8px;
-            }
-            
-            .product-modal-info {
-                padding: 0.75rem;
-                display: flex;
-                flex-direction: column;
-                gap: 0.4rem;
-                align-items: center;
-                text-align: center;
-            }
-            
-            .product-modal-header {
-                margin-bottom: 0;
-            }
-            
-            .product-modal-category {
-                padding: 0.15rem 0.5rem;
-                font-size: 0.65rem;
-                margin-bottom: 0.4rem;
-                align-self: center;
-            }
-            
-            .product-modal-title {
-                font-size: 1.2rem;
-                margin-bottom: 0.2rem;
-                line-height: 1.2;
-            }
-            
-            .product-modal-size {
-                font-size: 0.8rem;
-                margin-bottom: 0.4rem;
-                color: var(--text-secondary);
-            }
-            
-            .product-modal-description {
-                font-size: 0.8rem;
-                margin-bottom: 0.6rem;
-                line-height: 1.4;
-            }
-            
-            .product-modal-price {
-                font-size: 1.6rem;
-                margin-bottom: 0.8rem;
-                font-weight: 700;
-            }
-            
-            .product-modal-actions {
-                margin-top: auto;
-            }
-            
-            .modal-btn {
-                padding: 0.7rem 0.8rem;
-                font-size: 0.8rem;
-                border-radius: 8px;
-                font-weight: 600;
-            }
+            /* Product modal styles - REMOVED */
             
             .contact-modal-content {
                 width: 98%;
@@ -1642,33 +1364,7 @@
     </div>
 
     <!-- Product Modal -->
-    <div id="productModal" class="product-modal">
-        <div class="product-modal-content">
-            <button class="modal-close" onclick="closeProductModal()">&times;</button>
-            <div class="product-modal-image">
-                <img id="modalProductImage" src="" alt="" onclick="openImageModal()">
-            </div>
-            <div class="product-modal-info">
-                <div class="product-modal-header">
-                    <div id="modalProductCategory" class="product-modal-category"></div>
-                    <h2 id="modalProductTitle" class="product-modal-title"></h2>
-                    <p id="modalProductSize" class="product-modal-size"></p>
-                    <p id="modalProductDescription" class="product-modal-description"></p>
-                </div>
-                <div>
-                    <div id="modalProductPrice" class="product-modal-price"></div>
-                    <div class="product-modal-actions">
-                        <button class="modal-btn modal-btn-primary" onclick="contactWhatsAppFromModal()">
-                            💬 Encomendar via WhatsApp
-                        </button>
-                        <button class="modal-btn modal-btn-secondary" onclick="closeProductModal()">
-                            Fechar
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    <!-- Product Modal - REMOVED -->
 
     <!-- Image Modal -->
     <div id="imageModal" class="image-modal">
@@ -1822,7 +1518,7 @@
                 category: "sagrada-familia",
                 price: 20.00,
                 size: "10cm",
-                image: "Imagens/Sagrada família 10cm $20.jpg",
+                image: "./Imagens/Sagrada família 10cm $20.jpg",
                 badge: "",
                 description: "Peça artesanal em gesso da Sagrada Família"
             },
@@ -1832,7 +1528,7 @@
                 category: "sagrada-familia",
                 price: 40.00,
                 size: "20cm",
-                image: "Imagens/Sagrada família 20cm $40.jpg",
+                image: "./Imagens/Sagrada família 20cm $40.jpg",
                 badge: "",
                 description: "Peça artesanal em gesso da Sagrada Família"
             },
@@ -1842,7 +1538,7 @@
                 category: "sagrada-familia",
                 price: 70.00,
                 size: "28cm",
-                image: "Imagens/Sagrada família 28cm $70.jpg",
+                image: "./Imagens/Sagrada família 28cm $70.jpg",
                 badge: "Premium",
                 description: "Peça artesanal em gesso da Sagrada Família"
             },
@@ -1852,7 +1548,7 @@
                 category: "sagrada-familia",
                 price: 40.00,
                 size: "30cm",
-                image: "Imagens/Sagrada família 30cm $40.jpg",
+                image: "./Imagens/Sagrada família 30cm $40.jpg",
                 badge: "",
                 description: "Peça artesanal em gesso da Sagrada Família"
             },
@@ -1862,7 +1558,7 @@
                 category: "sagrada-familia",
                 price: 80.00,
                 size: "30cm",
-                image: "Imagens/Sagrada família 30cm $80.jpg",
+                image: "./Imagens/Sagrada família 30cm $80.jpg",
                 badge: "Premium",
                 description: "Peça artesanal em gesso da Sagrada Família - Acabamento premium"
             },
@@ -1872,7 +1568,7 @@
                 category: "santos",
                 price: 25.00,
                 size: "14cm",
-                image: "Imagens/Nossa Senhora Aparecida 14cm $25.jpg",
+                image: "./Imagens/Nossa Senhora Aparecida 14cm $25.jpg",
                 badge: "",
                 description: "Imagem da padroeira do Brasil"
             },
@@ -1882,7 +1578,7 @@
                 category: "santos",
                 price: 50.00,
                 size: "30cm",
-                image: "Imagens/Nossa Senhora Aparecida 30cm $50.jpg",
+                image: "./Imagens/Nossa Senhora Aparecida 30cm $50.jpg",
                 badge: "",
                 description: "Imagem da padroeira do Brasil"
             },
@@ -1892,7 +1588,7 @@
                 category: "santos",
                 price: 80.00,
                 size: "40cm",
-                image: "Imagens/Nossa Senhora das graças 40cm $80.jpg",
+                image: "./Imagens/Nossa Senhora das graças 40cm $80.jpg",
                 badge: "Premium",
                 description: "Imagem de Nossa Senhora das Graças"
             },
@@ -1902,7 +1598,7 @@
                 category: "santos",
                 price: 50.00,
                 size: "30cm",
-                image: "Imagens/Nossa Senhora dasdores 30cm $50.jpg",
+                image: "./Imagens/Nossa Senhora dasdores 30cm $50.jpg",
                 badge: "",
                 description: "Imagem de Nossa Senhora das Dores"
             },
@@ -1912,7 +1608,7 @@
                 category: "santos",
                 price: 50.00,
                 size: "30cm",
-                image: "Imagens/Santa Clara 30cm $50.jpg",
+                image: "./Imagens/Santa Clara 30cm $50.jpg",
                 badge: "",
                 description: "Imagem de Santa Clara"
             },
@@ -1922,7 +1618,7 @@
                 category: "santos",
                 price: 50.00,
                 size: "30cm",
-                image: "Imagens/Santa Terezinha 30cm $50.jpg",
+                image: "./Imagens/Santa Terezinha 30cm $50.jpg",
                 badge: "",
                 description: "Imagem de Santa Terezinha"
             },
@@ -1932,7 +1628,7 @@
                 category: "santos",
                 price: 80.00,
                 size: "32cm",
-                image: "Imagens/Santa luzia 32cm $80.jpg",
+                image: "./Imagens/Santa luzia 32cm $80.jpg",
                 badge: "Premium",
                 description: "Imagem de Santa Luzia"
             },
@@ -1942,7 +1638,7 @@
                 category: "santos",
                 price: 50.00,
                 size: "30cm",
-                image: "Imagens/São Francisco 30cm $50.jpg",
+                image: "./Imagens/São Francisco 30cm $50.jpg",
                 badge: "",
                 description: "Imagem de São Francisco de Assis"
             },
@@ -1952,7 +1648,7 @@
                 category: "santos",
                 price: 60.00,
                 size: "30cm",
-                image: "Imagens/São José 30cm $60.jpg",
+                image: "./Imagens/São José 30cm $60.jpg",
                 badge: "",
                 description: "Imagem de São José"
             },
@@ -1962,7 +1658,7 @@
                 category: "santos",
                 price: 75.00,
                 size: "50×38cm",
-                image: "Imagens/São José 50×38 $75.jpg",
+                image: "./Imagens/São José 50×38 $75.jpg",
                 badge: "Quadro",
                 description: "Quadro decorativo de São José"
             },
@@ -1972,7 +1668,7 @@
                 category: "anjos",
                 price: 30.00,
                 size: "18cm",
-                image: "Imagens/Miguel arcanjo 18cm $30.jpg",
+                image: "./Imagens/Miguel arcanjo 18cm $30.jpg",
                 badge: "",
                 description: "Imagem do Arcanjo Miguel"
             },
@@ -1982,7 +1678,7 @@
                 category: "anjos",
                 price: 30.00,
                 size: "27cm",
-                image: "Imagens/Miguel arcanjo 27cm $30.jpg",
+                image: "./Imagens/Miguel arcanjo 27cm $30.jpg",
                 badge: "",
                 description: "Imagem do Arcanjo Miguel"
             },
@@ -1992,7 +1688,7 @@
                 category: "anjos",
                 price: 30.00,
                 size: "20cm",
-                image: "Imagens/Trio querubin 20cm $30.jpg",
+                image: "./Imagens/Trio querubin 20cm $30.jpg",
                 badge: "",
                 description: "Conjunto de três querubins decorativos"
             },
@@ -2002,7 +1698,7 @@
                 category: "animais",
                 price: 25.00,
                 size: "12cm",
-                image: "Imagens/Coruja 12cm $25.jpg",
+                image: "./Imagens/Coruja 12cm $25.jpg",
                 badge: "",
                 description: "Coruja decorativa em gesso"
             },
@@ -2012,7 +1708,7 @@
                 category: "animais",
                 price: 25.00,
                 size: "15cm",
-                image: "Imagens/Coruja 15cm $25.jpg",
+                image: "./Imagens/Coruja 15cm $25.jpg",
                 badge: "",
                 description: "Coruja decorativa em gesso"
             },
@@ -2022,7 +1718,7 @@
                 category: "animais",
                 price: 30.00,
                 size: "20cm",
-                image: "Imagens/Coruja 20cm $30.jpg",
+                image: "./Imagens/Coruja 20cm $30.jpg",
                 badge: "",
                 description: "Coruja decorativa em gesso"
             },
@@ -2032,7 +1728,7 @@
                 category: "animais",
                 price: 40.00,
                 size: "28cm",
-                image: "Imagens/Coruja 28 cm $40.jpg",
+                image: "./Imagens/Coruja 28 cm $40.jpg",
                 badge: "",
                 description: "Coruja decorativa em gesso"
             },
@@ -2042,7 +1738,7 @@
                 category: "decorativo",
                 price: 75.00,
                 size: "50×36cm",
-                image: "Imagens/Quadro curuja 50×36 $75.jpg",
+                image: "./Imagens/Quadro curuja 50×36 $75.jpg",
                 badge: "Quadro",
                 description: "Quadro decorativo com coruja"
             },
@@ -2052,7 +1748,7 @@
                 category: "animais",
                 price: 50.00,
                 size: "38cm",
-                image: "Imagens/Galo 38cm $50.jpg",
+                image: "./Imagens/Galo 38cm $50.jpg",
                 badge: "",
                 description: "Galo decorativo em gesso"
             },
@@ -2062,7 +1758,7 @@
                 category: "animais",
                 price: 60.00,
                 size: "29cm",
-                image: "Imagens/Léo pardo 29cm $60.jpg",
+                image: "./Imagens/Léo pardo 29cm $60.jpg",
                 badge: "",
                 description: "Leopardo decorativo em gesso"
             },
@@ -2072,7 +1768,7 @@
                 category: "animais",
                 price: 20.00,
                 size: "12cm",
-                image: "Imagens/Mimi cachorro 12cm$20.jpg",
+                image: "./Imagens/Mimi cachorro 12cm$20.jpg",
                 badge: "",
                 description: "Cachorro decorativo em gesso"
             },
@@ -2082,7 +1778,7 @@
                 category: "animais",
                 price: 60.00,
                 size: "26cm",
-                image: "Imagens/Égua 26 cm $60.jpg",
+                image: "./Imagens/Égua 26 cm $60.jpg",
                 badge: "",
                 description: "Égua decorativa em gesso"
             },
@@ -2092,7 +1788,7 @@
                 category: "decorativo",
                 price: 60.00,
                 size: "25cm",
-                image: "Imagens/Africana 25cm $60.jpg",
+                image: "./Imagens/Africana 25cm $60.jpg",
                 badge: "",
                 description: "Estatueta decorativa africana"
             },
@@ -2102,7 +1798,7 @@
                 category: "decorativo",
                 price: 60.00,
                 size: "25cm",
-                image: "Imagens/Africana (outra variacao de cor) 25cm $60.jpg",
+                image: "./Imagens/Africana (outra variacao de cor) 25cm $60.jpg",
                 badge: "",
                 description: "Estatueta decorativa africana em cor alternativa"
             },
@@ -2112,7 +1808,7 @@
                 category: "decorativo",
                 price: 50.00,
                 size: "32cm",
-                image: "Imagens/Africana 32cm $50.jpg",
+                image: "./Imagens/Africana 32cm $50.jpg",
                 badge: "",
                 description: "Estatueta decorativa africana"
             },
@@ -2122,7 +1818,7 @@
                 category: "decorativo",
                 price: 60.00,
                 size: "36cm",
-                image: "Imagens/Africana 36cm $60.jpg",
+                image: "./Imagens/Africana 36cm $60.jpg",
                 badge: "",
                 description: "Estatueta decorativa africana"
             },
@@ -2132,7 +1828,7 @@
                 category: "decorativo",
                 price: 60.00,
                 size: "30cm",
-                image: "Imagens/Buda 30cm $60.jpg",
+                image: "./Imagens/Buda 30cm $60.jpg",
                 badge: "",
                 description: "Estatueta decorativa de Buda"
             },
@@ -2142,7 +1838,7 @@
                 category: "decorativo",
                 price: 80.00,
                 size: "42cm",
-                image: "Imagens/Buda 42cm $80.jpg",
+                image: "./Imagens/Buda 42cm $80.jpg",
                 badge: "Premium",
                 description: "Estatueta decorativa de Buda - Tamanho grande"
             },
@@ -2152,7 +1848,7 @@
                 category: "decorativo",
                 price: 25.00,
                 size: "11cm",
-                image: "Imagens/Namoradeira 11cm 25reais.jpg",
+                image: "./Imagens/Namoradeira 11cm 25reais.jpg",
                 badge: "",
                 description: "Estatueta decorativa de namoradeira"
             },
@@ -2162,7 +1858,7 @@
                 category: "decorativo",
                 price: 30.00,
                 size: "17cm",
-                image: "Imagens/Namoradeira 17cm $30.jpg",
+                image: "./Imagens/Namoradeira 17cm $30.jpg",
                 badge: "",
                 description: "Estatueta decorativa de namoradeira"
             },
@@ -2172,7 +1868,7 @@
                 category: "decorativo",
                 price: 50.00,
                 size: "30cm",
-                image: "Imagens/Titã 30cm $50.jpg",
+                image: "./Imagens/Titã 30cm $50.jpg",
                 badge: "",
                 description: "Estatueta decorativa de titã"
             }
@@ -2476,34 +2172,73 @@
             const product = products.find(p => p.id === productId);
             if (!product) return;
             
-            document.getElementById('modalProductImage').src = product.image;
-            document.getElementById('modalProductImage').alt = product.name;
-            document.getElementById('modalProductCategory').textContent = getCategoryDisplayName(product.category);
-            document.getElementById('modalProductTitle').textContent = product.name;
-            document.getElementById('modalProductSize').textContent = `Tamanho: ${product.size}`;
-            document.getElementById('modalProductDescription').textContent = product.description;
-            document.getElementById('modalProductPrice').textContent = `R$ ${product.price.toFixed(2).replace('.', ',')}`;
+            // Abre diretamente a imagem em alta qualidade
+            const imageModal = document.getElementById('imageModal');
+            const modalImage = document.getElementById('modalImage');
             
-            document.getElementById('productModal').style.display = 'flex';
+            if (!imageModal || !modalImage) {
+                console.error('Modal de imagem não encontrado');
+                return;
+            }
+            
+            console.log('Abrindo imagem:', product.image);
+            modalImage.src = product.image;
+            modalImage.alt = product.name;
+            
+            modalImage.onload = function() {
+                console.log('Imagem carregada com sucesso:', product.image);
+            };
+            
+            modalImage.onerror = function() {
+                console.log('Erro ao carregar imagem:', product.image);
+                console.log('Tentando caminho alternativo...');
+                // Tenta sem o ./ no início
+                const alternativePath = product.image.replace('./', '');
+                this.onerror = function() {
+                    console.log('Erro também no caminho alternativo:', alternativePath);
+                    this.src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDIwMCAyMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIyMDAiIGhlaWdodD0iMjAwIiBmaWxsPSIjRjNGNEY2Ii8+CjxwYXRoIGQ9Ik0xMDAgNzBDMTA4LjI4NCA3MCA5NS4yODQgNzAgMTAwIDcwWk0xMDAgMTMwQzEwOC4yODQgMTMwIDkxLjcxNiAxMzAgMTAwIDEzMFoiIHN0cm9rZT0iIzlDQTNBRiIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiLz4KPC9zdmc+';
+                };
+                this.src = alternativePath;
+            };
+            
+            imageModal.style.display = 'flex';
             document.body.style.overflow = 'hidden';
-            
-            // Store current product for WhatsApp contact
-            window.currentModalProduct = product;
         }
         
-        function closeProductModal() {
-            document.getElementById('productModal').style.display = 'none';
-            document.body.style.overflow = 'auto';
-            window.currentModalProduct = null;
-        }
+        // closeProductModal - REMOVED
         
         function openImageModal() {
             const productImage = document.getElementById('modalProductImage');
             const imageModal = document.getElementById('imageModal');
             const modalImage = document.getElementById('modalImage');
             
+            console.log('openImageModal chamada');
+            console.log('productImage.src:', productImage.src);
+            console.log('productImage existe:', !!productImage);
+            console.log('imageModal existe:', !!imageModal);
+            console.log('modalImage existe:', !!modalImage);
+            
+            if (!productImage || !imageModal || !modalImage) {
+                console.error('Elementos não encontrados');
+                return;
+            }
+            
+            if (!productImage.src || productImage.src === '') {
+                console.error('Imagem do produto não tem src válido');
+                return;
+            }
+            
             modalImage.src = productImage.src;
             modalImage.alt = productImage.alt;
+            
+            modalImage.onload = function() {
+                console.log('Imagem carregada com sucesso no modal');
+            };
+            
+            modalImage.onerror = function() {
+                console.error('Erro ao carregar imagem no modal:', productImage.src);
+            };
+            
             imageModal.style.display = 'flex';
             document.body.style.overflow = 'hidden';
         }
@@ -2513,20 +2248,11 @@
             document.body.style.overflow = 'hidden'; // Keep body overflow hidden since product modal is still open
         }
         
-        function contactWhatsAppFromModal() {
-            if (window.currentModalProduct) {
-                contactWhatsApp(window.currentModalProduct.name);
-            }
-        }
+        // contactWhatsAppFromModal - REMOVED
         
         // Close modal on outside click
         document.addEventListener('click', function(event) {
-            const productModal = document.getElementById('productModal');
             const imageModal = document.getElementById('imageModal');
-            
-            if (event.target === productModal) {
-                closeProductModal();
-            }
             
             if (event.target === imageModal) {
                 closeImageModal();
